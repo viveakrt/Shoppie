@@ -8,14 +8,14 @@
 ##### password :weareheros
 
 
-###=======version used=======
+### =======version used=======
 
 ###### python -> 3.5.4
 ###### django -> 2.1
 ###### pip    -> 18.0
 ###### virtualenv->16.0.0
 
-###=======Frist of all create environment======
+### =======Frist of all create environment======
 ```shell
 cmd -> pip intall virtualenv
 cmd -> virtalenv envname
@@ -24,14 +24,14 @@ cmd -> cd scripts
 cmd -> activate
 ```
 
-###=======Now Create A Django project and app======
+### =======Now Create A Django project and app======
 ```shell
 cmd -> django-admin startproject projectname
 cmd -> django-admin startapp appname
 cmd -> python manage.py runserver 
 ```
 
-###=======Link mysql database=======
+### =======Link mysql database=======
 ```sql
 DATABASES = {
     'default': {
@@ -43,7 +43,7 @@ DATABASES = {
 }
 ```
 
-###=======Link Installed app=========
+### =======Link Installed app=========
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-###========Check For correct connection======
+### ========Check For correct connection======
 ```shell
 (env1) A:\College Project\Django project\shopie>python manage.py shell
 Python 3.5.4 (v3.5.4:3f56838, Aug  8 2017, 02:17:05) [MSC v.1900 64 bit (AMD64)] on win32
@@ -67,7 +67,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> //if no error means connect successfully
 ```
 
-###========create models or work with model.py=======
+### ========create models or work with model.py=======
 ```python
 class User(models.Model):           //User changed into table name as Home_User
     Loginas = models.CharField()    //loginas changed in column and char is input type
@@ -76,19 +76,19 @@ class User(models.Model):           //User changed into table name as Home_User
     Email = modles.CharField()      //Email changed in column and char is input type
 ```
 
-###=======install sqlclient=============
+### =======install sqlclient=============
 
 `cmd ->pip install pymysql`
 `cmd ->pip install --only-binary :all: mysqlclient`
 `cmd ->python manage.py check`
 
 
-###=========migrations of code=========
+### =========migrations of code=========
 ```shell
 for converting or creating or make changes in databases we need to make the migrations using commands
 (env1) A:\College Project\Django project\shopie>python manage.py makemigratations
 (env1) A:\College Project\Django project\shopie>python manage.py migrate
 ```
 
-###=========Create SuperUser===============
+### =========Create SuperUser===============
 `cmd -> python manage.py createsuperuser`
