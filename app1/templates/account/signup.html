@@ -1,0 +1,29 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+<!--page-signup same theme-->
+	<div class="login-page">
+		<div class="container">
+			<h3 class="w3ls-title w3ls-title1">Create New Account Signup Here</h3>
+			<div class="login-body">
+				<form action="{% url 'account_signup' %}" method="post">
+                    {% csrf_token %}
+					{{ form }}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+					<input type="submit" value="SignIn">
+					<div class="forgot-grid">
+						<div class="forgot">
+							<a href="{% url 'account_reset_password' %}">Forgot Password?</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+			<h6> Already Have an Account <a href="{% url 'account_login' %}">Login Now »</a> </h6>
+		</div>
+	</div>
+	<!-- Sign-page -->
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+<!-- login-page -->
+	<div class="login-page">
+		<div class="container">
+
+                              <ul >
+                               {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                                 </ul>
+			<h3 class="w3ls-title w3ls-title1">Login to your account</h3>
+			<div class="login-body">
+				<form method="post" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                {{ form }}
+					{% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                     {% endif %}
+					<input type="submit" value="Login">
+					<div class="forgot-grid">
+						<div class="forgot">
+							<a href="{% url 'account_reset_password' %}">Forgot Password?</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+			<h6> Not a Member? <a href="{% url 'account_signup' %}">Sign Up Now »</a> </h6>
+			<div class="login-page-bottom social-icons">
+				<h5>Recover your social account</h5>
+				<ul>
+					<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
+					<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
+					<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
+					<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
+					<li><a href="#" class="fa fa-rss icon rss"> </a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- //login-page -->
+
+{% endblock %}

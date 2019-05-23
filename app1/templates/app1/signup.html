@@ -1,0 +1,27 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+<!--page-signup same theme-->
+	<div class="login-page">
+		<div class="container">
+			<h3 class="w3ls-title w3ls-title1">Create New Account Signup Here</h3>
+			<div class="login-body">
+				<form action="" method="post">
+                    {% csrf_token %}
+					{% include 'app1/form-template.html' %}
+					<input type="submit" value="Login">
+					<div class="forgot-grid">
+						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
+						<div class="forgot">
+							<a href="#">Forgot Password?</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>
+			<h6> Already Have an Account <a href="{% url 'app1:login' %}">Login Now »</a> </h6>
+		</div>
+	</div>
+	<!-- Sign-page -->
+
+{% endblock %}

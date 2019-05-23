@@ -1,0 +1,17 @@
+{% extends "app1/base.html" %}
+
+{% block content %}
+    <div class="login-page">
+<h1>Bye Bye!! Come Again</h1>
+
+
+<form method="post" action="{% url 'account_logout' %}">
+  {% csrf_token %}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+  {% endif %}
+  <button class="btn btn-primary" type="submit">Log Out</button>
+</form>
+
+    </div>
+{% endblock %}

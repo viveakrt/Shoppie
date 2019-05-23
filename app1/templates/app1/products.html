@@ -1,0 +1,9 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+    {% for p in product %}
+        <h1>{{ p.product_name }}</h1>
+        <p>{{ p.product_Image.url }}</p>
+     <img src="{{p.product_Image.url }}" >
+    {% endfor %}
+{% endblock %}

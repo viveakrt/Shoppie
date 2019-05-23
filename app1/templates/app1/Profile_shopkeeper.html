@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+{{ db }}
+{{ dbp }}
+{% for f in db %}
+    {{ f.email }}
+{% endfor %}
+
+
+    <form action="" method="get">
+        {% csrf_token %}
+        {% for field in form %}
+        <span>{{ field.errors }}</span>
+    {{ field }}{% endfor %}
+        <input type="submit" value="Save">
+    {{ form.email }}
+    </form>
+</body>
+</html>

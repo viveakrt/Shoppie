@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>{% block Title %}Shopie{% endblock %}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            {% load staticfiles %}
+            <!-- Custom Theme files -->
+            <link href="{% static 'app1/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{% static 'app1/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{% static 'app1/css/menu.css' %}" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->
+            <link href="{% static 'app1/css/ken-burns.css' %}" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider -->
+            <link href="{% static 'app1/css/animate.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{% static 'app1/css/owl.carousel.css' %}" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->
+            <!-- //Custom Theme files -->
+            <!-- font-awesome icons -->
+            <link href="{% static 'app1/css/font-awesome.css' %}" rel="stylesheet">
+            <!-- //font-awesome icons -->
+            <!-- js -->
+            <script src="{% static 'app1/js/jquery-2.2.3.min.js' %}"></script>
+            <!-- //js -->
+            <!-- web-fonts -->
+            <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+            <link href='//fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
+            <link href='//fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
+            <link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+            <!--flex slider-->
+            <script defer src="{% static 'app1/js/jquery.flexslider.js' %}"></script>
+            <link rel="stylesheet" href="{% static 'app1/css/flexslider.css' %}" type="text/css" media="screen" />
+            <!-- web-fonts -->
+            <script src="{% static 'app1/js/owl.carousel.js' %}"></script>
+
+                <script>
+                    // Can also be used with $(document).ready()
+                    $(window).load(function() {
+                      $('.flexslider').flexslider({
+                        animation: "slide",
+                        controlNav: "thumbnails"
+                      });
+                    });//image flex selector
+                </script>
+
+            <script src="{% static 'app1/js/imagezoom.js' %}"></script>
+            <script>
+            $(document).ready(function() {
+                $("#owl-demo").owlCarousel({
+                  autoPlay: 3000, //Set AutoPlay to 3 seconds
+                  items :4,
+                  itemsDesktop : [640,5],
+                  itemsDesktopSmall : [480,2],
+                  navigation : true
+
+                });
+            });
+            </script>
+            <script src="{% static 'app1/js/jquery-scrolltofixed-min.js' %}" type="text/javascript"></script>
+            <script>
+                $(document).ready(function() {
+
+                    // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
+
+                    $('.header-two').scrollToFixed();
+                    // previous summary up the page.
+
+                    var summaries = $('.summary');
+                    summaries.each(function(i) {
+                        var summary = $(summaries[i]);
+                        var next = summaries[i + 1];
+
+                        summary.scrollToFixed({
+                            marginTop: $('.header-two').outerHeight(true) + 10,
+                            zIndex: 999
+                        });
+                    });
+                });
+            </script>
+            <!-- start-smooth-scrolling -->
+            <script type="text/javascript" src="{% static 'app1/js/move-top.js' %}"></script>
+            <script type="text/javascript" src="{% static 'app1/js/easing.js' %}"></script>
+            <script type="text/javascript">
+                    jQuery(document).ready(function($) {
+                        $(".scroll").click(function(event){
+                            event.preventDefault();
+                            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+                        });
+                    });
+            </script>
+            <!-- //end-smooth-scrolling -->
+            <!-- smooth-scrolling-of-move-up -->
+                <script type="text/javascript">
+                    $(document).ready(function() {
+
+                        var defaults = {
+                            containerID: 'toTop', // fading element id
+                            containerHoverID: 'toTopHover', // fading element hover id
+                            scrollSpeed: 1200,
+                            easingType: 'linear'
+                        };
+
+                        $().UItoTop({ easingType: 'easeOutQuart' });
+
+                    });
+                </script>
+                <!-- //smooth-scrolling-of-move-up -->
+
+            <script src="{% static 'app1/js/bootstrap.js' %}"></script>
+
+
+</head>
+<body>
+
+    		<div class="header-two">
+				<div class="container">
+					<div class="header-logo">
+						<h1><a href="{% url 'app1:index' %}"><span>S</span>hopie<i></i></a></h1>
+						<h6>Your stores. Your place.</h6>
+					</div>
+					<div class="header-search">
+						<form action="{% url 'app1:search' %}" method="post">
+                             {% csrf_token %}
+							{{ form.product_name }}
+							<button type="submit" class="btn btn-default" aria-label="Left Align">
+								<i class="fa fa-search" aria-hidden="true"> </i>
+							</button>
+						</form>
+					</div>
+					<div class="header-cart">
+						<div class="my-account">
+							<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>
+						</div>
+						<div class="cart">
+							<form action="#" method="post" class="last">
+                                {% csrf_token %}
+								<input type="hidden" name="cmd" value="_cart" />
+								<input type="hidden" name="display" value="1" />
+								<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+
+			</div>
+
+				<div class="w3ls-header">
+					<div class="w3ls-header-left">
+						<p><a href="#">Under Construction | Abhi to bna hi rha hu bai </a></p>
+					</div>
+					<div class="w3ls-header-right">
+						<ul>
+							<li class="dropdown head-dpdn">
+                            {% if not request.user.is_authenticated %}
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> My Account<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="{% url 'account_login' %}">Login </a></li>
+									<li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                                    {% else %}
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i>Hi! {{ user.get_username }}<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+                                        {% if request.user.is_superuser %}
+                                            <li><a href="/admin/">Admin</a></li>
+                                        {% endif %}
+                                    <li><a href="{% url 'app1:profile' %}">Profile </a></li>
+                                    <li><a href="{% url 'account_logout' %}">Log Out </a></li>
+                                    {% endif %}
+									<li><a href="login.html">My Orders</a></li>
+									<li><a href="login.html">Wallet</a></li>
+								</ul>
+							</li>
+							<li class="dropdown head-dpdn">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> Today's Deals<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="offers.html">Cash Back Offers</a></li>
+								<li><a href="offers.html">Product Discounts</a></li>
+								<li><a href="offers.html">Special Offers</a></li>
+							</ul>
+							</li>
+							<li class="dropdown head-dpdn">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Gift Cards<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="offers.html">Product Gift card</a></li>
+									<li><a href="offers.html">Occasions Register</a></li>
+									<li><a href="offers.html">View Balance</a></li>
+								</ul>
+							</li>
+							<li class="dropdown head-dpdn">
+								<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Store Finder</a>
+							</li>
+							<li class="dropdown head-dpdn">
+								<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</a>
+							</li>
+							<li class="dropdown head-dpdn">
+								<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+
+{% block content %}
+{% endblock %}
+
+<!--footer-->
+
+
+<div class="w3agile-ftr-top">
+		<div class="container">
+			<div class="ftr-toprow">
+				<div class="col-md-4 ftr-top-grids">
+					<div class="ftr-top-left">
+						<i class="fa fa-truck" aria-hidden="true"></i>
+					</div>
+					<div class="ftr-top-right">
+						<h4>FREE DELIVERY</h4>
+						<p>Get free delivery in GZSCCET hostels and bla bla bla </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 ftr-top-grids">
+					<div class="ftr-top-left">
+						<i class="fa fa-user" aria-hidden="true"></i>
+					</div>
+					<div class="ftr-top-right">
+						<h4>CUSTOMER CARE</h4>
+						<p>W give you best coustomer support with bla bla bla </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="col-md-4 ftr-top-grids">
+					<div class="ftr-top-left">
+						<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+					</div>
+					<div class="ftr-top-right">
+						<h4>GOOD QUALITY</h4>
+						<p>We having good quality products with bla bla bla </p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+	<!-- menu js aim -->
+	<script src="js/jquery.menu-aim.js"> </script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% extends 'app1/base.html' %}
+
+{% block content %}
+
+    <!-- breadcrumbs -->
+	<div class="container">
+		<ol class="breadcrumb breadcrumb1">
+			<li><a href="{% url 'app1:index' %}">Home</a></li>
+			<li class="active">{{ product.product_type }}</li>
+		</ol>
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //breadcrumbs -->
+
+    <!-- products -->
+	<div class="products">
+		<div class="container">
+			<div class="single-page">
+				<div class="single-page-row" id="detail-21">
+					<div class="col-md-6 single-top-left">
+						<div class="flexslider">
+							<ul class="slides">
+								<li data-thumb="{{ product.product_Image.url }}">
+									<div class="thumb-image detail_images"> <img src="{{ product.product_Image.url }}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li>
+								<li data-thumb="{{ product.product_Image1.url }}">
+									 <div class="thumb-image"> <img src="{{ product.product_Image1.url }}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li>
+								<li data-thumb="{{ product.product_Image2.url }}">
+								   <div class="thumb-image"> <img src="{{ product.product_Image2.url }}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 single-top-right">
+						<h3 class="item_name">{{ product.product_name }}</h3>
+						<p>Processing Time: Item will be shipped out within 2-3 working days. </p>
+						<div class="single-rating">
+							<ul>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li class="rating">{{ product.product_rating }} Rating</li>
+								<li><a href="#">Add your review</a></li>
+							</ul>
+						</div>
+						<div class="single-price">
+							<ul>
+								<li>{{ product.product_cost }}</li>
+								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> Coupon</a></li>
+							</ul>
+						</div>
+						<p class="single-price-text">{{ product.product_description }}</p>
+						<form action="#" method="post">
+                            {% csrf_token %}
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" />
+							<input type="hidden" name="w3ls_item" value="{{ product.product_name }}" />
+							<input type="hidden" name="amount" value="{{ p }}" />
+							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+						</form>
+						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
+					</div>
+				   <div class="clearfix"> </div>
+				</div>
+				<div class="single-page-icons social-icons">
+					<ul>
+						<li><h4>Share on</h4></li>
+						<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
+						<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
+						<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
+						<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
+						<li><a href="#" class="fa fa-rss icon rss"> </a></li>
+					</ul>
+				</div>
+			</div>
+        </div>
+    </div>
+
+    	<!-- products -->
+{% endblock %}
+
