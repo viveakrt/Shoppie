@@ -1,7 +1,7 @@
 # Shoppie 
     A Shopping website with django
 
-[Click To See: Shoppie](https://vivekskecher.pythonanywhere.com/account/login/)
+[Click To See django admin: Shoppie](https://vivekskecher.pythonanywhere.com/admin)
 
 ##### Login for DjangoAdmin
 ##### User :vivek
