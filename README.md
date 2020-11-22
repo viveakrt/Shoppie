@@ -1,5 +1,5 @@
 # Shoppie - Django website
-    A Shopping website with django
+    A Shopping website with django.
 
 [Click To See django admin: Shoppie](https://vivekskecher.pythonanywhere.com/admin)
 
